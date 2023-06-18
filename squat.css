@@ -1,0 +1,106 @@
+.header {
+    display: absolute;
+    top: 0;
+    padding: 0 60px;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.headerColumn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.logo{
+    width: 200px;
+    cursor: pointer;
+}
+
+.login-button {
+    width: 170px;
+    height: 40px;
+    border-radius: 30px;
+    background: #518EFF;
+    color: #fff;
+    font-weight: 800;
+    font-size: 17px;
+}
+
+#profile{
+    height: 50px;
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 0 20px;
+        height: 60px;
+    }
+
+    .logo{
+        width: 140px;
+    }
+
+    .login-button {
+        width: 80px;
+        height: 30px;
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    #profile{
+        height: 40px;
+    }
+
+    .headerColumn{
+        flex-direction: row;
+        gap: 10px;
+    }
+}
+
+.squatContainer {
+    font-family: 'Inter';
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 100px;
+    gap: 60px;
+    text-align: center;
+}
+
+.squatText {
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 39px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.squatStart {
+    font-family: 'Inter';
+    width: 170px;
+    height: 40px;
+    border-radius: 30px;
+    background: #518EFF;
+    color: #fff;
+    font-weight: 800;
+    font-size: 17px;
+}
+
+#label-container {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    color: #666666;
+}

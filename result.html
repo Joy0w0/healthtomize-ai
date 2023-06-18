@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health-tomize</title>
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="result.css">
+  </head>
+  <body>
+    <div class="header">
+      <img class="logo" src="assets/logo.png" alt="로고" onclick="landing()"/>
+      <div class="headerColumn">
+        <img id="profile" src="assets/profile_man.jpeg" alt="프로필" />
+        <p id="name"></p>
+      </div>
+    </div>
+    <div class="resultContainer">
+      <p class="resultText">운동이 종료 되었습니다.<br/>분석한 결과를 알려 드리겠습니다!</p>
+      <div id="container"></div>
+    </div>
+    <script type="text/javascript">
+      
+      const sessionName = getQueryParamValue('sessionName');
+      const sessionGender = getQueryParamValue('sessionGender');
+
+      function getQueryParamValue(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+      function displayValue() {
+        const nameElement = document.getElementById('name');
+        const profileElement = document.getElementById('profile');
+        if (sessionName) {
+          nameElement.textContent = `${sessionName}`;
+        }
+        if (sessionGender==='여성') {
+          profileElement.src = "assets/profile_woman.jpeg";
+        }
+      }
+      window.onload = displayValue;
+
+      function landing() {
+        window.location.href = "http://healthtomize-frontend.s3-website.ap-northeast-2.amazonaws.com/";
+      }
+
+      for (let i = 0; i < 5; i++) {
+        // 총 수행 횟수, 인정 횟수, 완벽한 성공, 성공률, 코멘트, 실패횟수
+        container.appendChild(document.createElement("div"));
+      }
+      var count = localStorage.getItem("count");
+      var perfect = localStorage.getItem("perfect");
+      var wrong = localStorage.getItem("wrong");
+      var rate = (count + perfect) / 10;
+      container.childNodes[0].innerHTML = "총 수행 횟수 : 10회";
+      container.childNodes[1].innerHTML = "인정 횟수 : " + count + "회";
+      container.childNodes[2].innerHTML = "실패 횟수 : " + wrong + "회";
+      container.childNodes[3].innerHTML = "완벽한 성공 : " + perfect + "회";
+      container.childNodes[4].innerHTML =
+        "더 나은 자세를 원하신다면 영상을 참고해보세요.";
+
+      container.appendChild(document.createElement("iframe"));
+      container.childNodes[5].width = "560";
+      container.childNodes[5].height = "315";
+      container.childNodes[5].src = "https://www.youtube.com/embed/Fk9j6pQ6ej8";
+      container.childNodes[5].controls = "1";
+    </script>
+  </body>
+</html>
